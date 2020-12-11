@@ -22,6 +22,16 @@ client.once('ready', () => {
     console.log('Veribot is online!')
 });
 
+client.on('guildMemberAdd', member => {
+    member.roles.add(`774909359921823768`); //snowflake id, "Commoner" role: 774909359921823768
+});
+
+/*
+client.on('guildMemberAdd', member => {
+    member.roles.add(`787072317493608488`); //snowflake id, "Astral Sea" role: 787072317493608488
+});
+*/
+
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -36,4 +46,4 @@ client.on('message', message =>{
 });
 
 
-client.login(token);
+client.login(token); //need to add a config.json with prefix and token names
