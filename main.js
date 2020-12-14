@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 
 const {
 	prefix,
@@ -42,7 +42,9 @@ client.on('message', message =>{
         client.commands.get('ping').execute(message, args);
     }else if(command == 'pizza'){
         client.commands.get('pizza').execute(message, args);
-    }
+    }else if (command === 'reactionrole') {
+        client.commands.get('reactionrole').execute(message, args, Discord, client);
+    } 
 });
 
 
